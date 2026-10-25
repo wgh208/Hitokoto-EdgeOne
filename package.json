@@ -1,0 +1,16 @@
+{
+  "name": "hitokoto-edgeone",
+  "version": "1.0.0",
+  "description": "使用 EdgeOne Pages 搭建的一言（Hitokoto）API，简洁、快速还好用。数据集基于 hitokoto-osc/sentences-bundle。",
+  "type": "module",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build:index": "node scripts/build-index.mjs",
+    "check:index": "node scripts/build-index.mjs --check",
+    "sync:sentences": "node scripts/sync-sentences.mjs",
+    "test": "node scripts/smoke-test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

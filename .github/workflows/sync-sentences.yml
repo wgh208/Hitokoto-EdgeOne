@@ -1,0 +1,43 @@
+name: Sync official sentences
+
+on:
+  schedule:
+    # Every day at 03:17 Asia/Shanghai (19:17 UTC on the previous day).
+    - cron: "17 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-official-sentences
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Download hitokoto-osc/sentences-bundle
+        run: node scripts/sync-sentences.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add categories.json version.json sentences lib
+          if git diff --cached --quiet; then
+            echo "Official sentences are already up to date."
+            exit 0
+          fi
+          git commit -m "chore: sync sentences from hitokoto-osc/sentences-bundle"
+          git push

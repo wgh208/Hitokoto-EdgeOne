@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+
+sentences/index.json linguist-generated=true
+lib/sentence-index.js linguist-generated=true
+lib/data/*.js linguist-generated=true
