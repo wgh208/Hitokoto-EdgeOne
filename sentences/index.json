@@ -1,6 +1,6 @@
 {
-  "version": "518d89a9e751",
-  "total": 11277,
+  "version": "2a9a1c44c371",
+  "total": 11278,
   "generatedBy": "scripts/build-index.mjs",
   "categories": {
     "a": {
@@ -648,7 +648,7 @@
       }
     },
     "i": {
-      "count": 754,
+      "count": 755,
       "maxLength": 68,
       "lengths": {
         "5": 1,
@@ -675,7 +675,7 @@
         "28": 6,
         "29": 1,
         "30": 7,
-        "32": 7,
+        "32": 8,
         "33": 1,
         "34": 1,
         "35": 2,
